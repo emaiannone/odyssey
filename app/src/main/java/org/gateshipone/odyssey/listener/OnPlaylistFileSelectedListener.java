@@ -23,6 +23,8 @@
 package org.gateshipone.odyssey.listener;
 
 
+import org.gateshipone.odyssey.models.FileModel;
+
 public interface OnPlaylistFileSelectedListener {
-    void onPlaylistFileSelected(String name, String path);
+    void onPlaylistFileSelected(FileModel playlist);
 }
