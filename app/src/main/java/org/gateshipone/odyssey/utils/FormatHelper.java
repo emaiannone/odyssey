@@ -102,7 +102,7 @@ public class FormatHelper {
     public static String formatTimeStampToString(final long timestamp) {
         Date date = new Date(timestamp);
         // Create a locale based formatted DateTime string
-        return DateFormat.getDateTimeInstance(DateFormat.MEDIUM,DateFormat.MEDIUM, Locale.getDefault()).format(date);
+        return DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM, Locale.getDefault()).format(date);
     }
 
     /**

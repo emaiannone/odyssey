@@ -35,6 +35,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import androidx.annotation.NonNull;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.lifecycle.ViewModelProviders;
+
 import org.gateshipone.odyssey.R;
 import org.gateshipone.odyssey.activities.GenericActivity;
 import org.gateshipone.odyssey.database.MusicDatabaseFactory;
@@ -44,10 +48,6 @@ import org.gateshipone.odyssey.models.ArtistModel;
 import org.gateshipone.odyssey.utils.ThemeUtils;
 import org.gateshipone.odyssey.viewmodels.AlbumViewModel;
 import org.gateshipone.odyssey.viewmodels.GenericViewModel;
-
-import androidx.annotation.NonNull;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.lifecycle.ViewModelProviders;
 
 public class RecentAlbumsFragment extends GenericAlbumsFragment {
 

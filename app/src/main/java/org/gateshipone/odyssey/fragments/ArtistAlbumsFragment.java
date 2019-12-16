@@ -38,6 +38,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.lifecycle.ViewModelProviders;
+
 import org.gateshipone.odyssey.R;
 import org.gateshipone.odyssey.activities.GenericActivity;
 import org.gateshipone.odyssey.adapter.AlbumsRecyclerViewAdapter;
@@ -56,11 +61,6 @@ import org.gateshipone.odyssey.viewmodels.GenericViewModel;
 import org.gateshipone.odyssey.views.OdysseyRecyclerView;
 
 import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.lifecycle.ViewModelProviders;
 
 public class ArtistAlbumsFragment extends OdysseyRecyclerFragment<AlbumModel, GenericViewItemHolder> implements CoverBitmapLoader.CoverBitmapReceiver, ArtworkManager.onNewArtistImageListener, OdysseyRecyclerView.OnItemClickListener {
     private static final String TAG = ArtistAlbumsFragment.class.getSimpleName();
