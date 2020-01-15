@@ -31,7 +31,13 @@ import org.gateshipone.odyssey.artwork.network.ArtworkRequestModel;
 import org.gateshipone.odyssey.artwork.network.ImageResponse;
 import org.json.JSONException;
 
+import info.debatty.java.stringsimilarity.NormalizedLevenshtein;
+
 public abstract class ArtProvider {
+
+    private double mArtistCompareThreshold;
+
+    private double mAlbumCompareThreshold;
 
     public interface ArtFetchError {
         void fetchJSONException(final ArtworkRequestModel model, final Context context, final JSONException exception);
@@ -42,4 +48,27 @@ public abstract class ArtProvider {
     }
 
     public abstract void fetchImage(final ArtworkRequestModel model, final Context context, final Response.Listener<ImageResponse> listener, final ArtFetchError errorListener);
+
+    boolean compareAlbumResponse(final String expectedAlbum, final String expectedArtist, final String retrievedAlbum, final String retrievedArtist) {
+        return compareStrings(expectedAlbum, retrievedAlbum, mAlbumCompareThreshold)
+                && compareStrings(expectedArtist, retrievedArtist, mArtistCompareThreshold);
+    }
+
+    boolean compareArtistResponse(final String expectedArtist, final String retrievedArtist) {
+        return compareStrings(expectedArtist, retrievedArtist, mArtistCompareThreshold);
+    }
+
+    void setArtistCompareThreshold(double threshold) {
+        mArtistCompareThreshold = threshold;
+    }
+
+    void setAlbumCompareThreshold(double threshold) {
+        mAlbumCompareThreshold = threshold;
+    }
+
+    private boolean compareStrings(final String expected, final String retrieved, final double threshold) {
+        final NormalizedLevenshtein comparator = new NormalizedLevenshtein();
+
+        return comparator.distance(expected, retrieved) < threshold;
+    }
 }
